@@ -53,7 +53,6 @@ public class P03NeedForSpeed {
             String[] carsParram = scanner.nextLine().split("\\|");
             Cars cars = new Cars(carsParram[0],Integer.parseInt(carsParram[1]),Integer.parseInt(carsParram[2]));
             carsMap.put(cars.getName(), cars);
-            System.out.println();
         }
         String command = scanner.nextLine();
         while (!command.equals("Stop")) {
