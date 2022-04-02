@@ -1,4 +1,4 @@
-package Exam02For2Time;
+package Exam;
 
 import java.util.*;
 

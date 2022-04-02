@@ -6,64 +6,63 @@ public class P01WorldTour {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String stops = scanner.nextLine();
-        String command = scanner.nextLine();
-        while (!command.equals("Travel")) {
-            String[] commandArr = command.split(":");
-            switch (commandArr[0]){
+        String inputText = scanner.nextLine();
+        String inputCommand = scanner.nextLine();
+        while (!inputCommand.equals("Travel")) {
+            String[] commandArr = inputCommand.split(":");
+            switch (commandArr[0]) {
                 case "Add Stop":
-                    int indexToAdd = Integer.parseInt(commandArr[1]);
-                   if (isValidIndex(stops,indexToAdd)) {
-                       String stringToAdd = commandArr[2];
-                      stops = addstop(stops, indexToAdd, stringToAdd);
-                   }
-                    System.out.println(stops);
+                    int index = Integer.parseInt(commandArr[1]);
+                    String stopToAdd = commandArr[2];
+                    if (isValid(index,inputText)) {
+                       inputText = add(index,stopToAdd,inputText);
+                    }
                     break;
                 case "Remove Stop":
                     int startIndex = Integer.parseInt(commandArr[1]);
                     int endIndex = Integer.parseInt(commandArr[2]);
-                    if (isValidIndex(stops,startIndex) && isValidIndex(stops,endIndex + 1)){
-                       stops = removeStop(stops,startIndex,endIndex);
+                    if (isValid(startIndex,inputText) && isValid(endIndex,inputText)){
+                        inputText = removeStop (inputText,startIndex,endIndex);
                     }
-                    System.out.println(stops);
                     break;
                 case "Switch":
                     String oldString = commandArr[1];
                     String newString = commandArr[2];
-                    stops = switchOldwithNew(stops,oldString,newString);
-                    System.out.println(stops);
+                    inputText = switchText (inputText,oldString,newString);
                     break;
             }
+            System.out.println(inputText);
 
-            command = scanner.nextLine();
+            inputCommand = scanner.nextLine();
         }
-        System.out.printf("Ready for world tour! Planned stops: %s", stops);
+
+        System.out.printf("Ready for world tour! Planned stops: %s", inputText);
     }
 
-    private static String switchOldwithNew(String stops, String oldString, String newString) {
-        if (stops.contains(oldString)) {
-            stops = stops.replace(oldString,newString);
+    private static String switchText(String inputText, String oldString, String newString) {
+        if (inputText.contains(oldString)) {
+            inputText = inputText.replace(oldString,newString);
         }
-        return stops;
+        return inputText;
     }
 
-
-    private static boolean isValidIndex(String stops, int index) {
-        return index >= 0 && index <=stops.length();
+    private static String removeStop(String inputText, int startIndex, int endIndex) {
+        StringBuilder sbToRemove = new StringBuilder(inputText);
+        sbToRemove = sbToRemove.replace(startIndex,endIndex + 1,"");
+        return inputText = sbToRemove.toString();
     }
 
-    private static String removeStop(String stops, int startIndex, int endIndex) {
-        StringBuilder sb = new StringBuilder(stops);
-        sb.replace(startIndex,endIndex + 1,"");
-        stops = sb.toString();
-        return stops;
+    private static String add(int index, String stopToAdd, String inputText) {
+        StringBuilder sb = new StringBuilder(inputText);
+        sb = sb.insert(index,stopToAdd);
+        return inputText = sb.toString();
     }
 
-
-    private static String addstop(String stops, int indexToAdd, String stringToAdd) {
-        StringBuilder sb = new StringBuilder(stops);
-        sb.insert(indexToAdd,stringToAdd);
-        stops = sb.toString();
-        return stops;
+    private static boolean isValid(int index,String text) {
+        if (index >= 0 && index < text.length()) {
+            return  true;
+        } else {
+            return false;
+        }
     }
 }
