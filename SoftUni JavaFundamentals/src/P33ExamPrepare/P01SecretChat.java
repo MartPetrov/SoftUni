@@ -1,47 +1,59 @@
 package P33ExamPrepare;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class P01SecretChat {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String secretMessage = scanner.nextLine();
-        String commandFirst = scanner.nextLine();
-        while (!commandFirst.equals("Reveal")) {
-            String[] command = commandFirst.split(":\\|:");
-            switch (command[0]) {
+        StringBuilder text = new StringBuilder(scanner.nextLine());
+        String[] commandArr = scanner.nextLine().split(":\\|:");
+
+        while (!commandArr[0].equals("Reveal")) {
+
+            switch (commandArr[0]) {
                 case "InsertSpace":
-                    int indexToInsert = Integer.parseInt(command[1]);
-                    secretMessage = secretMessage.substring(0, indexToInsert).concat(" ").concat(secretMessage.substring(indexToInsert));
-                    System.out.println(secretMessage);
+                    int indexToInsert =  Integer.parseInt(commandArr[1]);
+                    insertSpace (text,indexToInsert);
+                    System.out.println(text);
                     break;
                 case "Reverse":
-                    String subString = command[1];
-                    StringBuilder forReplays = new StringBuilder(subString);
-                    if (secretMessage.contains(subString)) {
-                        subString = forReplays.reverse().toString();
-                        int startIndex = secretMessage.indexOf(command[1]);
-                        int endIndex = startIndex + command[1].length();
-
-                        StringBuilder updateString = new StringBuilder(secretMessage);
-                        updateString.delete(startIndex, endIndex);
-                        secretMessage = updateString.append(subString).toString();
-                        System.out.println(secretMessage);
-                    } else {
-                        System.out.println("error");
-                    }
-
+                    String substring = commandArr[1];
+                    reverse (text,substring);
                     break;
                 case "ChangeAll":
-                    String substring = command[1];
-                    String replacement = command[2];
-                    secretMessage = secretMessage.replace(substring, replacement);
-                    System.out.println(secretMessage);
+                    String substringToChange = commandArr[1];
+                    String replacement = commandArr[2];
+                    text = changeAll(text,substringToChange,replacement);
+                    System.out.println(text);
                     break;
             }
-            commandFirst = scanner.nextLine();
+            commandArr = scanner.nextLine().split(":\\|:");
         }
-        System.out.println("You have a new text message: " + secretMessage);
+        System.out.printf("You have a new text message: %s", text);
     }
+
+    private static void insertSpace(StringBuilder text, int indexToInsert) {
+        text.insert(indexToInsert," ");
+    }
+
+    private static void reverse(StringBuilder text, String substring) {
+        if (text.toString().contains(substring)) {
+            StringBuilder toAdd = new StringBuilder(substring).reverse();
+            int indexStart = text.indexOf(substring);
+            int indexEnd = indexStart + substring.length();
+            text.delete(indexStart,indexEnd);
+            text.append(toAdd);
+            System.out.println(text);
+        } else {
+            System.out.printf("error%n");
+        }
+
+    }
+
+    private static StringBuilder changeAll(StringBuilder text, String substringToChange, String replacement) {
+      return new StringBuilder(text.toString().replace(substringToChange,replacement));
+    }
+
 }

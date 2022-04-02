@@ -1,4 +1,4 @@
-package P33ExamPrepare;
+package Exam05For2Time;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -10,26 +10,38 @@ import java.util.regex.Pattern;
 public class P02EmojiDetector {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        Pattern patternForWord = Pattern.compile("([*]{2})[A-Z][a-z]{2,}([*]{2})|([:]{2})[A-Z][a-z]{2,}([:]{2})");
+
+        String text = scanner.nextLine();
+        Pattern patternForEmoji = Pattern.compile("(?<product>[:]{2}[A-Z][a-z]{2,}[:]{2}|[*]{2}[A-Z][a-z]{2,}[*]{2})");
+        Matcher matcherForEmoji = patternForEmoji.matcher(text);
+
         Pattern patternForDigit = Pattern.compile("\\d");
-        Matcher emojiMatcher = patternForWord.matcher(input);
-        Matcher threshold = patternForDigit.matcher(input);
-        BigInteger thresholdSum = BigInteger.valueOf(1);
-        while (threshold.find()) {
-            thresholdSum = thresholdSum.multiply(BigInteger.valueOf(Long.parseLong(threshold.group())));
-        }
-        System.out.println("Cool threshold: " + thresholdSum);
-        int emojiCount=0;
-        List<String> coolEmoji = new ArrayList<>();
-        while (emojiMatcher.find()) {
-            String emoji = emojiMatcher.group().substring(2, emojiMatcher.group().length()-2);
-            if(thresholdSum.compareTo(BigInteger.valueOf(emoji.chars().sum())) < 0) coolEmoji.add(emojiMatcher.group());
-            emojiCount++;
-        }
+        Matcher matcherForDigit = patternForDigit.matcher(text);
 
-        System.out.println(emojiCount + " emojis found in the text. The cool ones are:");
-        coolEmoji.forEach(System.out::println);
+        BigInteger coolThreshold = BigInteger.valueOf(1);
 
+        while (matcherForDigit.find()) {
+            coolThreshold = coolThreshold.multiply(BigInteger.valueOf(Long.parseLong(matcherForDigit.group())));
+        }
+        System.out.printf("Cool threshold: %d%n", coolThreshold);
+        List<String> listOfEmoji = new ArrayList<>();
+        int countEmojiAll = 0;
+        while (matcherForEmoji.find()) {
+            String currentEmoji = matcherForEmoji.group();
+            countEmojiAll++;
+            String emojiToCheck = currentEmoji.substring(2, currentEmoji.length() - 2);
+            BigInteger emojiCurrentSum = BigInteger.valueOf(0);
+            for (int i = 0; i < emojiToCheck.length(); i++) {
+                BigInteger current = BigInteger.valueOf(emojiToCheck.charAt(i));
+                emojiCurrentSum = emojiCurrentSum.add(current);
+            }
+            if (emojiCurrentSum.compareTo(coolThreshold) >= 0) {
+                listOfEmoji.add(matcherForEmoji.group());
+            }
+        }
+        System.out.printf("%d emojis found in the text. The cool ones are:%n", countEmojiAll);
+        for (String currentEmojiPrint : listOfEmoji) {
+            System.out.println(currentEmojiPrint);
+        }
     }
 }

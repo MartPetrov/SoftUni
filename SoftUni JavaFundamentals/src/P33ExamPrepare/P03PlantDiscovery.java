@@ -6,59 +6,96 @@ public class P03PlantDiscovery {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int n = Integer.parseInt(scanner.nextLine());
-
-        Map<String, Integer> plantRariryMap = new LinkedHashMap<>();
-        Map<String, Double> rateMap = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            String[] tokens = scanner.nextLine().split("<->");
-            String plant = tokens[0];
-            int rarity = Integer.parseInt(tokens[1]);
-
-            plantRariryMap.putIfAbsent(plant, 0);
-            rateMap.putIfAbsent(plant, 0.0);
-            plantRariryMap.put(plant, rarity);
+        int numPlants = Integer.parseInt(scanner.nextLine());
+        Map<String, Plant> plantMap = new LinkedHashMap<>();
+        for (int i = 0; i < numPlants; i++) {
+            String[] lineInfoPlants = scanner.nextLine().split("<->");
+            String name = lineInfoPlants[0];
+            int rarity = Integer.parseInt(lineInfoPlants[1]);
+            if (!isValidName(plantMap, name)) {
+                Plant plant = new Plant(name, rarity, new LinkedList<>());
+                plantMap.put(name, plant);
+            } else {
+                Plant current = plantMap.get(name);
+                current.setRarity(rarity);
+            }
 
         }
 
-        String inputLine = scanner.nextLine();
-        while (!inputLine.equals("Exhibition")) {
-            String[] tokens = inputLine.split("[: -]+");
-            String command = tokens[0];
-            String plant = tokens[1];
-
-            if (!rateMap.containsKey(plant)) {
-                System.out.println("error");
+        String[] commandArr = scanner.nextLine().split("[: -]+");
+        while (!commandArr[0].equals("Exhibition")) {
+            if (!isValidName(plantMap, commandArr[1])) {
+                System.out.printf("error%n");
             } else {
-                switch (command) {
+                Plant currentPlant = plantMap.get(commandArr[1]);
+                switch (commandArr[0]) {
                     case "Rate":
-                        double currentRate = Double.parseDouble(tokens[2]);
-                        if (rateMap.get(plant) == 0) {
-                            rateMap.put(plant, currentRate);
-                        } else {
-                            double newRate = (rateMap.get(plant) + currentRate) / 2;
-                            rateMap.put(plant, newRate);
-                        }
+
+                        double rating = Double.parseDouble(commandArr[2]);
+                        List<Double> currentRating = currentPlant.getListOfRatings();
+                        currentRating.add(rating);
                         break;
                     case "Update":
-                        int newRarity = Integer.parseInt(tokens[2]);
-                        plantRariryMap.put(plant, newRarity);
+                        int newRarity = Integer.parseInt(commandArr[2]);
+                        currentPlant.setRarity(newRarity);
                         break;
                     case "Reset":
-                        rateMap.put(plant, 0.0);
+                        currentPlant.setListOfRatings(new LinkedList<>());
                         break;
                     default:
-                        System.out.println("error");
+                        System.out.printf("error%n");
                 }
             }
-            inputLine = scanner.nextLine();
+            commandArr = scanner.nextLine().split("[: -]+");
         }
-        System.out.println("Plants for the exhibition:");
+        System.out.printf("Plants for the exhibition:%n");
+        for (Plant plant : plantMap.values()) {
+            System.out.println(plant);
+        }
+    }
 
-        plantRariryMap.entrySet().stream()
-                .forEach(entry -> {
-                    System.out.printf("- %s; Rarity: %d; Rating: %.2f%n",
-                            entry.getKey(), entry.getValue(), rateMap.get(entry.getKey()));
-                });
+    private static boolean isValidName(Map<String, Plant> plantMap, String name) {
+        return plantMap.containsKey(name);
+    }
+
+    public static class Plant {
+        String plantName;
+        int rarity;
+        List<Double> listOfRatings;
+
+        public Plant(String plantName, int rarity, List<Double> listOfRatings) {
+            this.plantName = plantName;
+            this.rarity = rarity;
+            this.listOfRatings = listOfRatings;
+        }
+
+        public String getPlantName() {
+            return plantName;
+        }
+
+        public void setPlantName(String plantName) {
+            this.plantName = plantName;
+        }
+
+        public int getRarity() {
+            return rarity;
+        }
+
+        public void setRarity(int rarity) {
+            this.rarity = rarity;
+        }
+
+        public List<Double> getListOfRatings() {
+            return listOfRatings;
+        }
+
+        public void setListOfRatings(List<Double> listOfRatings) {
+            this.listOfRatings = listOfRatings;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("- %s; Rarity: %d; Rating: %.2f", getPlantName(), getRarity(), getListOfRatings().stream().mapToDouble(e -> e).average().orElse(0));
+        }
     }
 }

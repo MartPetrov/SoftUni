@@ -1,57 +1,60 @@
 package P33ExamPrepare;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class P01WorldTour {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String stops = scanner.nextLine();
-        String command = scanner.nextLine();
+        StringBuilder stops = new StringBuilder(scanner.nextLine());
+        String[] commandArr = scanner.nextLine().split(":");
 
-        while (!command.equals("Travel")) {
-            String[] commandParts = command.split(":");
-            String commandName = commandParts[0];
-            switch (commandName) {
+        while (!commandArr[0].equals("Travel")) {
+            switch (commandArr[0]) {
                 case "Add Stop":
-                    int index = Integer.parseInt(commandParts[1]);
-                    String stopName = commandParts[2];
-                    if (isValidIndex(index, stops)) {
-
-                        String firstHalf = stops.substring(0, index);
-                        String secondHalf = stops.substring(index);
-                        stops = firstHalf + stopName + secondHalf;
+                    int indexToAdd = Integer.parseInt(commandArr[1]);
+                    String stringToAdd = commandArr[2];
+                    if (isValidIndex(stops,indexToAdd)) {
+                        addStop (stops,indexToAdd,stringToAdd);
                     }
-
+                    System.out.println(stops);
                     break;
                 case "Remove Stop":
-                    int startIndex = Integer.parseInt(commandParts[1]);
-                    int endIndex = Integer.parseInt(commandParts[2]);
-                    if (isValidIndex(startIndex, stops) && isValidIndex(endIndex, stops)) {
-                        String firstHalf = stops.substring(0, startIndex);
-                        String secondHalf = stops.substring(endIndex + 1);
-                        stops = firstHalf + secondHalf;
-
+                    int startIndex = Integer.parseInt(commandArr[1]);
+                    int endIndex = Integer.parseInt(commandArr[2]);
+                    if (isValidIndex(stops,startIndex) && isValidIndex(stops,endIndex)) {
+                        removeStop (stops,startIndex,endIndex);
                     }
-
+                    System.out.println(stops);
                     break;
                 case "Switch":
-                    String oldString = commandParts[1];
-                    String newString = commandParts[2];
-                    if (stops.contains(oldString)) {
-                        stops = stops.replace(oldString,newString);
-                    }
+                    String oldString = commandArr[1];
+                    String newString = commandArr[2];
+                    stops = switchText (stops,oldString,newString);
+                    System.out.println(stops);
                     break;
-
             }
-            System.out.println(stops);
-            command = scanner.nextLine();
+            commandArr = scanner.nextLine().split(":");
         }
-        System.out.printf("Ready for world tour! Planned stops: %s", stops);
+        System.out.printf("Ready for world tour! Planned stops: %s%n", stops);
     }
 
-    public static boolean isValidIndex(int index, String stops) {
-        return index >= 0 && index < stops.length();
+    private static StringBuilder switchText(StringBuilder stops, String oldString, String newString) {
+        if (stops.toString().contains(oldString)) {
+            stops = new StringBuilder(stops.toString().replace(oldString, newString));
+        }
+        return stops;
+    }
+
+    private static boolean isValidIndex(StringBuilder stops, int indexToAdd) {
+        return indexToAdd >=0 && indexToAdd <stops.length();
+    }
+
+    private static void removeStop(StringBuilder stops, int startIndex, int endIndex) {
+        stops.delete(startIndex,endIndex+1);
+    }
+
+    private static void addStop(StringBuilder stops, int indexToAdd, String stringToAdd) {
+        stops.insert(indexToAdd,stringToAdd);
     }
 }

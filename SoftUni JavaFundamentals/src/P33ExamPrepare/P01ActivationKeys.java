@@ -1,54 +1,48 @@
-package P33ExamPrepare;
+package Exam05For2Time;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class P01ActivationKeys {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String activationKey = scanner.nextLine();
-        String inputLine = scanner.nextLine();
+        String message = scanner.nextLine();
+        String command = scanner.nextLine();
 
-        while (!inputLine.equals("Generate")) {
-            String[] commandArr = inputLine.split(">>>");
-            String command = commandArr[0];
-            switch (command) {
+        while (!command.equals("Generate")) {
+            String[] commandArr = command.split(">>>");
+            switch (commandArr[0]) {
                 case "Contains":
                     String substring = commandArr[1];
-                    if (activationKey.contains(substring)) {
-                        System.out.printf("%s contains %s%n", activationKey, substring);
+                    if (message.contains(substring)) {
+                        System.out.printf("%s contains %s%n", message, substring);
                     } else {
-                        System.out.printf("Substring not found!%n");
+                        System.out.println("Substring not found!");
                     }
                     break;
                 case "Flip":
-                    String criteria = commandArr[1];
+                    String type = commandArr[1];
                     int startIndex = Integer.parseInt(commandArr[2]);
                     int endIndex = Integer.parseInt(commandArr[3]);
-                    String substringToReplace = activationKey.substring(startIndex,endIndex);
-                    if (criteria.equals("Upper")) {
-                        activationKey = activationKey.replace(substringToReplace, substringToReplace.toUpperCase());
-                        System.out.println(activationKey);
-                    } else {
-                        activationKey = activationKey.replace(substringToReplace, substringToReplace.toLowerCase());
-                        System.out.println(activationKey);
+                    String subStringFromTo = message.substring(startIndex,endIndex);
+                    if (type.equals("Upper")) {
+                        message = message.replace(subStringFromTo,subStringFromTo.toUpperCase());
+                    } else if (type.equals("Lower")) {
+                        message = message.replace(subStringFromTo,subStringFromTo.toLowerCase());
                     }
+                    System.out.println(message);
                     break;
                 case "Slice":
-                    int startInd = Integer.parseInt(commandArr[1]);
-                    int endInd = Integer.parseInt(commandArr[2]);
-                    String substringToRemove = activationKey.substring(startInd,endInd);
-                    activationKey = activationKey.replace(substringToRemove,"");
-                    System.out.println(activationKey);
+                    int startIndexToDelete = Integer.parseInt(commandArr[1]);
+                    int endIndexToDelete = Integer.parseInt(commandArr[2]);
+                    String subStringFromToToDelete = message.substring(startIndexToDelete,endIndexToDelete);
+                    message = message.replace(subStringFromToToDelete,"");
+                    System.out.println(message);
                     break;
-            }
 
-            inputLine = scanner.nextLine();
+            }
+            command = scanner.nextLine();
         }
-        System.out.printf("Your activation key is: %s", activationKey);
+        System.out.printf("Your activation key is: %s", message);
     }
 }

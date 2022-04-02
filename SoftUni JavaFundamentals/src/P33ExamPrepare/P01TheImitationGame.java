@@ -1,45 +1,49 @@
 package P33ExamPrepare;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class P01TheImitationGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        StringBuilder encryptedText = new StringBuilder(scanner.nextLine());
-        String command = scanner.nextLine();
-
-        while (!command.equals("Decode")) {
-            List<String> commandList = Arrays.asList(command.split("\\|"));
-            switch (commandList.get(0)) {
+        StringBuilder encrypted = new StringBuilder(scanner.nextLine());
+        String[] commandArr = scanner.nextLine().split("\\|");
+        while (!commandArr[0].equals("Decode")) {
+            switch (commandArr[0]) {
                 case "Move":
-                    int numLetters = Integer.parseInt(commandList.get(1));
-                    String textToAppend = encryptedText.substring(0,numLetters);
-                        encryptedText.replace(0,numLetters,"");
-                        encryptedText.append(textToAppend);
+                    int numLetters = Integer.parseInt(commandArr[1]);
+                    move (encrypted,numLetters);
                     break;
                 case "Insert":
-                    int indexToInsert = Integer.parseInt(commandList.get(1));
-                    String textToInsert = commandList.get(2);
-                    encryptedText.insert(indexToInsert,textToInsert);
+                    int indexToInsert = Integer.parseInt(commandArr[1]);
+                    String valueToInsert = commandArr[2];
+                    insert (encrypted,indexToInsert,valueToInsert);
                     break;
                 case "ChangeAll":
-                    String subToChange = commandList.get(1);
-                    String subToReplace = commandList.get(2);
-                    for (int i = 0; i < encryptedText.length(); i++) {
-                        if (encryptedText.toString().contains(subToChange)) {
-                            int indexOfChar = encryptedText.indexOf(subToChange);
-                            encryptedText.deleteCharAt(indexOfChar);
-                            encryptedText.insert(indexOfChar,subToReplace);
-                        }
-                    }
+                    String substring = commandArr[1];
+                    String replacement = commandArr[2];
+                    encrypted = changeAll (encrypted,substring,replacement);
                     break;
             }
 
-            command = scanner.nextLine();
+            commandArr = scanner.nextLine().split("\\|");
         }
-        System.out.println("The decrypted message is: " +encryptedText);
+        System.out.printf("The decrypted message is: %s",encrypted.toString());
+    }
+
+    private static StringBuilder changeAll(StringBuilder encrypted, String substring, String replacement) {
+       encrypted=  new StringBuilder(encrypted.toString().replace(substring,replacement));
+       return encrypted;
+    }
+
+    private static void insert(StringBuilder encrypted, int indexToInsert, String valueToInsert) {
+        encrypted.insert(indexToInsert,valueToInsert);
+    }
+
+    private static void move(StringBuilder encrypted, int numLetters) {
+        String substring = encrypted.substring(0, numLetters);
+        encrypted.replace(0,numLetters,"");
+        encrypted.append(substring);
+
     }
 }

@@ -1,4 +1,4 @@
-package P33ExamPrepare;
+package Exam04For2Time;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -8,32 +8,32 @@ public class P02FancyBarcodes {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        int n =  Integer.parseInt(scanner.nextLine());
 
-        int n = Integer.parseInt(scanner.nextLine());
-        String regex = "@#+[A-Z][A-Za-z0-9]{4,}[A-Z]@#+";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = null;
-
-        for (int i = 0; i < n; i++) {
-            String barcode = scanner.nextLine();
-            matcher = pattern.matcher(barcode);
-
+        for (int i = 0; i <n ; i++) {
+            String text = scanner.nextLine();
+            Pattern pattern = Pattern.compile("(@#+)(?<product>[A-Z][A-Za-z0-9]{4,}[A-Z])(@#+)");
+            Matcher matcher = pattern.matcher(text);
             if (matcher.find()) {
-                StringBuilder sb = new StringBuilder();
-                for (int j = 0; j < barcode.length(); j++) {
-                    char symbol = barcode.charAt(j);
-                    if (Character.isDigit(symbol)) {
-                        sb.append(symbol);
-                    }
-                }
-                if (sb.length() == 0) {
-                    System.out.println("Product group: 00");
-                } else {
-                    System.out.println("Product group: " + sb);
-                }
+                String group = "";
+                group = group(matcher.group("product"));
+                System.out.printf("Product group: %s%n",group);
             } else {
-                System.out.println("Invalid barcode");
+                System.out.printf("Invalid barcode%n");
             }
         }
+    }
+
+    private static String group(String product) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < product.length(); i++) {
+            if (Character.isDigit(product.charAt(i))){
+                sb.append(product.charAt(i));
+            }
+        }
+        if (sb.length() ==0) {
+            sb.append("00");
+        }
+        return sb.toString();
     }
 }
