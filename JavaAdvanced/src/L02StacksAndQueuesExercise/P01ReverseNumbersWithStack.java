@@ -1,7 +1,6 @@
-package P02StacksAndQueuesExercise;
+package L02StacksAndQueuesExercise;
 
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class P01ReverseNumbersWithStack {

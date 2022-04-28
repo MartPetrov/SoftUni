@@ -1,4 +1,4 @@
-package P02StacksAndQueuesExercise;
+package L02StacksAndQueuesExercise;
 
 import java.util.ArrayDeque;
 import java.util.Collections;
