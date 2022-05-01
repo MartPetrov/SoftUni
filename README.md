@@ -27,8 +27,6 @@
 | <a href="https://softuni.bg/trainings/3607/programming-fundamentals-with-java-january-2022">Programming Fundamentals with Java</a> |        <a href="https://softuni.bg/certificates/details/129717/ccc28b50"> Link</a> |
 | <a href="https://softuni.bg/trainings/3701/java-advanced-may-2022">Java Advanced</a>|                                              |
 | <a href="https://softuni.bg/trainings/3702/java-oop-june-2022"> Java OOP </a>       |                                              |
-| <a href="https://softuni.bg/trainings/3811/algorithms-fundamentals-with-java-june-2022">Algorithms Fundamentals with Java</a>      |
-| <a href="https://softuni.bg/trainings/3812/algorithms-advanced-with-java-september-2022"> Algorithms Advanced with Java </a>       |
 
 
 </td>
