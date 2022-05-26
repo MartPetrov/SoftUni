@@ -9,8 +9,10 @@ public class P01Meeting {
         Scanner scanner = new Scanner(System.in);
         String[] inputLineMale = scanner.nextLine().split(" ");
         String[] inputLineFemale = scanner.nextLine().split(" ");
-        ArrayDeque<Integer>  stackOfMale = new ArrayDeque<>();
-        ArrayDeque<Integer>  queueOfFemale = new ArrayDeque<>();
+
+
+        ArrayDeque<Integer> stackOfMale = new ArrayDeque<>();
+        ArrayDeque<Integer> queueOfFemale = new ArrayDeque<>();
 
         for (int i = 0; i < inputLineMale.length; i++) {
             stackOfMale.push(Integer.parseInt(inputLineMale[i]));
@@ -18,7 +20,6 @@ public class P01Meeting {
         for (int i = 0; i < inputLineFemale.length; i++) {
             queueOfFemale.offer(Integer.parseInt(inputLineFemale[i]));
         }
-
         int matches = 0;
 
         while (!queueOfFemale.isEmpty() && !stackOfMale.isEmpty()) {
@@ -26,29 +27,23 @@ public class P01Meeting {
             int currentFemale = queueOfFemale.peek();
 
             if (currentMale <= 0 || currentFemale <= 0) {
-                equalOrBelow0 (currentMale, currentFemale, stackOfMale, queueOfFemale);
+                equalOrBelow0(currentMale,currentFemale,stackOfMale,queueOfFemale);
                 continue;
             }
-
+            if (currentMale % 25 == 0 || currentFemale % 25 == 0) {
+                isDivisibleBy25(currentMale,currentFemale,stackOfMale,queueOfFemale);
+                continue;
+            }
             if (currentMale == currentFemale) {
-                queueOfFemale.poll();
                 stackOfMale.pop();
+                queueOfFemale.poll();
                 matches++;
             } else {
                 queueOfFemale.poll();
                 stackOfMale.pop();
-                if (stackOfMale.isEmpty() || queueOfFemale.isEmpty()) {
-                    stackOfMale.push(currentMale - 2);
-                    for (int i = 0; i < queueOfFemale.size(); i++) {
-                        int currentFemaleCheck = queueOfFemale.poll();
-                        isDivisibleBy25(currentMale,currentFemaleCheck,stackOfMale,queueOfFemale);
-                    }
-                    break;
-                } else {
-                    stackOfMale.push(currentMale - 2);
-                }
-
+                stackOfMale.push(currentMale - 2);
             }
+
 
         }
         System.out.printf("Matches: %d%n", matches);
@@ -82,22 +77,31 @@ public class P01Meeting {
 
     private static void isDivisibleBy25(int currentMale, int currentFemale, ArrayDeque<Integer> stackOfMale, ArrayDeque<Integer> queueOfFemale) {
         if (currentMale % 25 == 0) {
-            stackOfMale.pop();
-            stackOfMale.pop();
+            if (stackOfMale.size() >= 1) {
+                stackOfMale.pop();
+            }
+            if (stackOfMale.size() >= 1) {
+                stackOfMale.pop();
+            }
+
         }
         if (currentFemale % 25 == 0) {
-            queueOfFemale.poll();
-            queueOfFemale.poll();
+            if (queueOfFemale.size() >= 1) {
+                queueOfFemale.poll();
+            }
+            if (queueOfFemale.size() >= 1) {
+                queueOfFemale.poll();
+            }
         }
     }
 
     private static void equalOrBelow0(int currentMale, int currentFemale, ArrayDeque<Integer> stackOfMale, ArrayDeque<Integer> queueOfFemale) {
 
         if (currentMale <= 0) {
-            stackOfMale.remove(currentMale);
+            stackOfMale.pop();
         }
-        if (currentFemale <= 0 ) {
-            queueOfFemale.remove(currentFemale);
+        if (currentFemale <= 0) {
+            queueOfFemale.poll();
         }
     }
 }
