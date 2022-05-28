@@ -1,37 +1,31 @@
 package ExamPrep.P01;
 
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.util.*;
 
 public class P01AutumnCocktails {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] ingredientsArr = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int[] ingredientsArr = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).filter(e -> e != 0).toArray();
         int[] freshnessLevelArr = Arrays.stream(scanner.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-
-
         ArrayDeque<Integer> ingredients = new ArrayDeque<>();
-
         for (int i = 0; i < ingredientsArr.length; i++) {
             ingredients.offer(ingredientsArr[i]);
         }
+
         ArrayDeque<Integer> freshnessLevel = new ArrayDeque<>();
         for (int i = 0; i < freshnessLevelArr.length; i++) {
             freshnessLevel.push(freshnessLevelArr[i]);
         }
+
         Map<String, Integer> cocktailMap = new TreeMap<>();
 
         while (!ingredients.isEmpty() && !freshnessLevel.isEmpty()) {
             int currentIngredients = ingredients.peek();
             int currentFreshness = freshnessLevel.peek();
-
-            if (isZero(currentFreshness, currentIngredients, ingredients, freshnessLevel)) {
-                continue;
-            }
             int multiplication = currentIngredients * currentFreshness;
+
             String name = "";
             if (multiplication == 150) {
                 name = "Pear Sour";
@@ -47,14 +41,12 @@ public class P01AutumnCocktails {
                 fillMap(cocktailMap, name, ingredients, freshnessLevel);
             } else {
                 freshnessLevel.pop();
-                int currentIngredientsRemove = ingredients.peek();
-               ingredients.poll();
-                ingredients.offerLast(currentIngredientsRemove + 5);
-
+                ingredients.poll();
+                ingredients.offer(currentIngredients + 5);
             }
 
         }
-        if (isMakeAllCocktail(cocktailMap) && cocktailMap.size() == 4) {
+        if (isValidMap(cocktailMap)) {
             System.out.println("It's party time! The cocktails are ready!");
         } else {
             System.out.println("What a pity! You didn't manage to prepare all cocktails.");
@@ -63,10 +55,8 @@ public class P01AutumnCocktails {
 
         if (!ingredients.isEmpty()) {
             int sumOfIngredients = 0;
-            int ingredientsSize = ingredients.size();
-            for (int i = 0; i < ingredientsSize; i++) {
-                int currentElement = ingredients.pop();
-                sumOfIngredients += currentElement;
+            for (Integer ingredient : ingredients) {
+                sumOfIngredients += ingredient;
             }
             System.out.println("Ingredients left: " + sumOfIngredients);
         }
@@ -82,28 +72,6 @@ public class P01AutumnCocktails {
     }
 
 
-    private static boolean isMakeAllCocktail(Map<String, Integer> cocktailMap) {
-        boolean isValid = true;
-        for (Map.Entry<String, Integer> entry : cocktailMap.entrySet()) {
-            if (entry.getValue() == 0) {
-                isValid = false;
-            }
-        }
-        return isValid;
-    }
-
-    private static boolean isZero(int currentFreshness, int currentIngredients, ArrayDeque<Integer> ingredients, ArrayDeque<Integer> freshnessLevel) {
-        if (currentIngredients == 0) {
-            ingredients.poll();
-            return true;
-        }
-        if (currentFreshness == 0) {
-            freshnessLevel.pop();
-            return true;
-        }
-        return false;
-    }
-
     private static void fillMap(Map<String, Integer> cocktailMap, String name, ArrayDeque<Integer> ingredients, ArrayDeque<Integer> freshnessLevel) {
         if (!cocktailMap.containsKey(name)) {
             cocktailMap.put(name, 1);
@@ -114,6 +82,31 @@ public class P01AutumnCocktails {
         ingredients.poll();
         freshnessLevel.pop();
     }
-//TODO Find where is wrong
+
+
+
+    private static boolean isValidMap(Map<String, Integer> cocktailMap) {
+        if (cocktailMap.containsKey("Pear Sour") &&
+                cocktailMap.containsKey("The Harvest") &&
+                cocktailMap.containsKey("Apple Hinny") &&
+                cocktailMap.containsKey("High Fashion")) {
+            if (isMakeAllCocktail(cocktailMap)) {
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean isMakeAllCocktail(Map<String, Integer> cocktailMap) {
+        boolean isValid = true;
+        for (Map.Entry<String, Integer> entry : cocktailMap.entrySet()) {
+            if (entry.getValue() == 0) {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
 
 }
