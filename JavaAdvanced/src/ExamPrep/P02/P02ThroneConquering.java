@@ -1,4 +1,4 @@
-package ExamPrep.P02.MouseAndCheese;
+package ExamPrep.P02;
 
 import java.util.Scanner;
 
