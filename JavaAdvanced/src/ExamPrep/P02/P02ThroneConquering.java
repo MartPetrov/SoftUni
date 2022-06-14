@@ -1,97 +1,154 @@
 package ExamPrep.P02;
 
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class P02ThroneConquering {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int energy = Integer.parseInt(scanner.nextLine());
-
+        int parisEnergy = Integer.parseInt(scanner.nextLine());
         int rows = Integer.parseInt(scanner.nextLine());
-        char[][] field = new char[rows][rows];
 
-        for (int row = 0; row < rows; row++) {
-            field[row] = scanner.nextLine().toCharArray();
-        }
-        int parisRow = 0;
-        int parisCol = 0;
+        String[][] matrix = new String[rows][];
 
-        for (int row = 0; row < rows; row++) {
-            for (int col = 0; col < field[row].length; col++) {
-                if (field[row][col] == 'P') {
-                    parisRow = row;
-                    parisCol = col;
-                }
-            }
-        }
+        fillMatrix(scanner, rows, matrix);
 
-            while (true) {
-                String command = scanner.nextLine();
-                String direction = command.split(" ")[0];
-                int enemyRow = Integer.parseInt(command.split(" ")[1]);
-                int enemyCol = Integer.parseInt(command.split(" ")[2]);
+        int[] parisCoordinate = new int[2];
+        int[] helenCoordinate = new int[2];
 
-                field[parisRow][parisCol] = '-';
-                field[enemyRow][enemyCol] = 'S';
+        findParisAndHelen(matrix, parisCoordinate, helenCoordinate);
 
-                switch (direction) {
-                    case "up":
-                        if (parisRow - 1 >= 0) {
-                            parisRow--;
-                        }
-                        break;
-                    case "down":
-                        if (parisRow + 1 < field.length) {
-                            parisRow++;
-                        }
-                        break;
-                    case "left":
-                        if (parisCol - 1 >= 0) {
-                            parisCol--;
-                        }
-                        break;
-                    case "right":
-                        if (parisCol + 1 < field.length) {
-                            parisCol++;
-                        }
-                        break;
-                }
-                energy--;
-                if (energy <= 0) {
-                    ParisDead(field, parisRow, parisCol);
-                    return;
-                }
-                if (field[parisRow][parisCol] == 'S') {
-                    energy -= 2;
-                    if (energy <= 0) {
-                        ParisDead(field, parisRow, parisCol);
-                        return;
-                    } else {
-                        field[parisRow][parisCol] = '-';
+        isFoundHelen(parisCoordinate, helenCoordinate);
+        while (parisEnergy > 0) {
+            parisEnergy--;
+            String[] commandLine = scanner.nextLine().split("\\s+");
+            String command = commandLine[0];
+            int rowSpartan = Integer.parseInt(commandLine[1]);
+            int colSpartan = Integer.parseInt(commandLine[2]);
+            matrix[rowSpartan][colSpartan] = "S";
+
+            switch (command) {
+                case "up":
+                    matrix[parisCoordinate[0]][parisCoordinate[1]] = "-";
+                    parisCoordinate[0]--;
+                    if (!isValidCoordinate(parisCoordinate[0], matrix)) {
+                        parisCoordinate[0]++;
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        continue;
                     }
-                } else if (field[parisRow][parisCol] == 'H') {
-                    field[parisRow][parisCol] = '-';
-                    System.out.printf("Paris has successfully abducted Helen! Energy left: %d%n", energy);
-                    printField(field);
-                    return;
-                }
+                    parisEnergy = onNewCoordinate(parisCoordinate[0], parisCoordinate[1], matrix, parisEnergy);
+                    if (parisEnergy > 0) {
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        matrix[parisCoordinate[0] + 1][parisCoordinate[1]] = "-";
+                    }
+                    break;
+                case "down":
+                    matrix[parisCoordinate[0]][parisCoordinate[1]] = "-";
+                    parisCoordinate[0]++;
+                    if (!isValidCoordinate(parisCoordinate[0], matrix)) {
+                        parisCoordinate[0]--;
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        continue;
+                    }
+                    parisEnergy = onNewCoordinate(parisCoordinate[0], parisCoordinate[1], matrix, parisEnergy);
+                    if (parisEnergy > 0) {
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        matrix[parisCoordinate[0] - 1][parisCoordinate[1]] = "-";
+                    }
+
+                    break;
+                case "left":
+                    matrix[parisCoordinate[0]][parisCoordinate[1]] = "-";
+                    parisCoordinate[1]--;
+                    if (!isValidCoordinate(parisCoordinate[1], matrix)) {
+                        parisCoordinate[1]++;
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        continue;
+                    }
+                    parisEnergy = onNewCoordinate(parisCoordinate[0], parisCoordinate[1], matrix, parisEnergy);
+                    if (parisEnergy > 0) {
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        matrix[parisCoordinate[0]][parisCoordinate[1] + 1] = "-";
+                    }
+
+                    break;
+                case "right":
+                    matrix[parisCoordinate[0]][parisCoordinate[1]] = "-";
+                    parisCoordinate[1]++;
+                    if (!isValidCoordinate(parisCoordinate[1], matrix)) {
+                        parisCoordinate[1]--;
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        continue;
+                    }
+                    parisEnergy = onNewCoordinate(parisCoordinate[0], parisCoordinate[1], matrix, parisEnergy);
+                    if (parisEnergy > 0) {
+                        matrix[parisCoordinate[0]][parisCoordinate[1]] = "P";
+                        matrix[parisCoordinate[0]][parisCoordinate[1] - 1] = "-";
+                    }
+                    break;
             }
+
+            if (parisEnergy <= 0) {
+                matrix[parisCoordinate[0]][parisCoordinate[1]] = "X";
+                System.out.printf("Paris died at %d;%d.%n", parisCoordinate[0], parisCoordinate[1]);
+            }
+            if (isFoundHelen(parisCoordinate, helenCoordinate)) {
+                matrix[parisCoordinate[0]][parisCoordinate[1]] = "-";
+                System.out.println("Paris has successfully abducted Helen! Energy left: " + parisEnergy);
+                break;
+            }
+
         }
 
-    public static void ParisDead(char[][] field, int parisRow, int parisCol) {
-        field[parisRow][parisCol] = 'X';
-        System.out.printf("Paris died at %d;%d.%n", parisRow, parisCol);
-        printField(field);
+        for (String[] strings : matrix) {
+            for (String string : strings) {
+                System.out.print(string.replaceAll("[\\[\\],]", ""));
+            }
+            System.out.println();
+        }
+
+    }
+
+    private static int onNewCoordinate(int rowParis, int colParis, String[][] matrix, int parisEnergy) {
+        if (matrix[rowParis][colParis].equals("S")) {
+            parisEnergy -= 2;
+        }
+        return parisEnergy;
+    }
+
+    private static boolean isValidCoordinate(int coordinate, String[][] matrix) {
+        return coordinate >= 0 && coordinate < matrix.length;
+    }
+
+    private static boolean isFoundHelen(int[] parisCoordinate, int[] helenCoordinate) {
+        return Arrays.equals(parisCoordinate, helenCoordinate);
     }
 
 
-    private static void printField(char[][] field) {
-        for (int row = 0; row < field.length; row++) {
-            for (int col = 0; col < field[row].length; col++) {
-                System.out.print(field[row][col]);
+    private static void findParisAndHelen(String[][] matrix, int[] parisCoordinate, int[] helenCoordinate) {
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (matrix[row][col].equals("P")) {
+                    parisCoordinate[0] = row;
+                    parisCoordinate[1] = col;
+                }
+                if (matrix[row][col].equals("H")) {
+                    helenCoordinate[0] = row;
+                    helenCoordinate[1] = col;
+                }
+
             }
-            System.out.println();
+        }
+    }
+
+    private static void fillMatrix(Scanner scanner, int rows, String[][] matrix) {
+        for (int row = 0; row < rows; row++) {
+            String[] currentRow = scanner.nextLine().split("");
+            for (int col = 0; col < currentRow.length; col++) {
+                matrix[row] = currentRow;
+            }
         }
     }
 }
