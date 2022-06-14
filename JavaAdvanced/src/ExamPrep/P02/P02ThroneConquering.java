@@ -20,7 +20,7 @@ public class P02ThroneConquering {
 
         findParisAndHelen(matrix, parisCoordinate, helenCoordinate);
 
-        isFoundHelen(parisCoordinate, helenCoordinate);
+
         while (parisEnergy > 0) {
             parisEnergy--;
             String[] commandLine = scanner.nextLine().split("\\s+");
@@ -89,6 +89,7 @@ public class P02ThroneConquering {
                     }
                     break;
             }
+
 
             if (parisEnergy <= 0) {
                 matrix[parisCoordinate[0]][parisCoordinate[1]] = "X";
