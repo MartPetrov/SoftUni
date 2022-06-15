@@ -1,4 +1,4 @@
-package parrots;
+package ExamPrep.P03.parrots;
 
 public class Parrot {
     private String name;
