@@ -92,9 +92,9 @@ public class P01Blacksmith {
             System.out.println("Carbon left: none");
         }
 
-        for (Map.Entry<String,Integer> entry: swordMap.entrySet()) {
+        for (Map.Entry<String, Integer> entry : swordMap.entrySet()) {
             if (entry.getValue() != 0) {
-                System.out.printf("%s: %d%n", entry.getKey(),entry.getValue());
+                System.out.printf("%s: %d%n", entry.getKey(), entry.getValue());
             }
         }
     }

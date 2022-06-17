@@ -13,7 +13,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("Employee: %s, %d from %s",getName(),getAge(),getCountry());
+        return String.format("Employee: %s, %d from %s", getName(), getAge(), getCountry());
     }
 
     public String getName() {

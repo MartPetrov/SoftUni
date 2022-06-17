@@ -27,7 +27,7 @@ public class P02MouseAndCheese {
         String direction = scanner.nextLine();
         countCheese = moveMouse(scanner, n, matrix, mouseRow, mouseCol, countCheese, direction);
 
-        if (countCheese >= 5 ){
+        if (countCheese >= 5) {
             System.out.printf("Great job, the mouse is fed %d cheeses!%n", countCheese);
         } else {
             System.out.printf("The mouse couldn't eat the cheeses, she needed %d cheeses more.%n", 5 - countCheese);

@@ -51,7 +51,7 @@ public class Cage {
 
     public List<Parrot> sellParrotBySpecies(String species) {
         List<Parrot> soldSpecies = new ArrayList<>();
-            int sizeOfList = data.size();
+        int sizeOfList = data.size();
         for (Parrot parrot : data) {
             String currentSpecies = parrot.getSpecies();
             if (currentSpecies.equals(species)) {
@@ -68,7 +68,7 @@ public class Cage {
 
     public String report() {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Parrots available at %s:%n",name));
+        sb.append(String.format("Parrots available at %s:%n", name));
         for (Parrot parrot : data) {
             sb.append(parrot.toString()).append(System.lineSeparator());
         }

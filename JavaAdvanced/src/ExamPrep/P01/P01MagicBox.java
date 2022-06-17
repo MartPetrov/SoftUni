@@ -24,7 +24,7 @@ public class P01MagicBox {
         while (!firstBox.isEmpty() && !secondBox.isEmpty()) {
             int currentFirst = firstBox.peek();
             int currentSecond = secondBox.peek();
-            int sum = currentFirst+ currentSecond;
+            int sum = currentFirst + currentSecond;
             if (sum % 2 == 0) {
                 sumClaimed += sum;
                 firstBox.poll();

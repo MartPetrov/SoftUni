@@ -61,7 +61,7 @@ public class P02CookingJourney {
         if (!isOut) {
             System.out.println("Good news! You succeeded in collecting enough money!");
         }
-        System.out.printf("Money: %d%n",money);
+        System.out.printf("Money: %d%n", money);
 
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix.length; col++) {

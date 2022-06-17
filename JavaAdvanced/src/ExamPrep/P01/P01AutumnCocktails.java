@@ -84,7 +84,6 @@ public class P01AutumnCocktails {
     }
 
 
-
     private static boolean isValidMap(Map<String, Integer> cocktailMap) {
         if (cocktailMap.containsKey("Pear Sour") &&
                 cocktailMap.containsKey("The Harvest") &&

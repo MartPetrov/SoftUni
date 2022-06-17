@@ -57,8 +57,8 @@ public class Cafe {
     }
 
     public String report() {
-        StringBuilder sb =  new StringBuilder();
-        sb.append(String.format("Employees working at Cafe %s:%n",name));
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("Employees working at Cafe %s:%n", name));
         for (Employee employee : employees) {
             sb.append(employee.toString()).append(System.lineSeparator());
         }

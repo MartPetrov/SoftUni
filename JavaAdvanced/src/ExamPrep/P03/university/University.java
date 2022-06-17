@@ -54,7 +54,7 @@ public class University {
         return "Student not found";
     }
 
-    public Student getStudent(String firstName , String lastName) {
+    public Student getStudent(String firstName, String lastName) {
         Student findStudent = null;
         for (Student studentFind : students) {
             if (studentFind.getFirstName().equals(firstName) &&
@@ -69,7 +69,7 @@ public class University {
         StringBuilder sb = new StringBuilder();
         for (Student student : students) {
             sb.append(String.format("==Student: First Name = %s, Last Name = %s, Best Subject = %s"
-                            ,student.getFirstName(),student.getLastName(),student.getBestSubject()))
+                            , student.getFirstName(), student.getLastName(), student.getBestSubject()))
                     .append(System.lineSeparator());
         }
         return sb.toString().trim();

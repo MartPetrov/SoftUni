@@ -59,7 +59,7 @@ public class Dealership {
 
     public String getStatistics() {
         StringBuilder sb = new StringBuilder();
-                sb.append(String.format("The cars are in a car ExamPrep.P03.dealership %s:%n",this.name));
+        sb.append(String.format("The cars are in a car ExamPrep.P03.dealership %s:%n", this.name));
         for (Car car : data) {
             sb.append(car.toString()).append(System.lineSeparator());
         }

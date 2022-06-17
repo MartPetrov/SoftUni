@@ -27,11 +27,11 @@ public class P01Meeting {
             int currentFemale = queueOfFemale.peek();
 
             if (currentMale <= 0 || currentFemale <= 0) {
-                equalOrBelow0(currentMale,currentFemale,stackOfMale,queueOfFemale);
+                equalOrBelow0(currentMale, currentFemale, stackOfMale, queueOfFemale);
                 continue;
             }
             if (currentMale % 25 == 0 || currentFemale % 25 == 0) {
-                isDivisibleBy25(currentMale,currentFemale,stackOfMale,queueOfFemale);
+                isDivisibleBy25(currentMale, currentFemale, stackOfMale, queueOfFemale);
                 continue;
             }
             if (currentMale == currentFemale) {

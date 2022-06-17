@@ -37,7 +37,7 @@ public class Aquarium {
 
     public void add(Fish fish) {
         boolean isHaveSameFish = false;
-        for (Fish fishInList  : fishInPool) {
+        for (Fish fishInList : fishInPool) {
             if (fishInList.equals(fish.getName())) {
                 isHaveSameFish = true;
             }
@@ -50,12 +50,12 @@ public class Aquarium {
 
     public boolean remove(String name) {
         Fish removedFish = null;
-        for (Fish fish: fishInPool) {
+        for (Fish fish : fishInPool) {
             if (fish.getName().equals(name)) {
                 removedFish = fish;
             }
         }
-        if (removedFish==null) {
+        if (removedFish == null) {
             return false;
         } else {
             fishInPool.remove(removedFish);
@@ -64,7 +64,7 @@ public class Aquarium {
     }
 
     public Fish findFish(String name) {
-        for (Fish fish: fishInPool) {
+        for (Fish fish : fishInPool) {
             if (fish.getName().equals(name)) {
                 return fish;
             }
@@ -75,7 +75,7 @@ public class Aquarium {
     public String report() {
 
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("Aquarium: %s ^ Size: %d",this.name,this.size)).append("\n");
+        sb.append(String.format("Aquarium: %s ^ Size: %d", this.name, this.size)).append("\n");
         for (Fish fish : fishInPool) {
             sb.append(fish.toString()).append(System.lineSeparator());
         }

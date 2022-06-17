@@ -45,7 +45,7 @@ public class P02Bomb {
                     break;
             }
 
-            if (isInvalidCoordinate(sapperCoord[0],sapperCoord[1],matrix)) {
+            if (isInvalidCoordinate(sapperCoord[0], sapperCoord[1], matrix)) {
                 switch (currentCommand) {
                     case "left":
                         sapperCoord[1]++;
@@ -77,9 +77,9 @@ public class P02Bomb {
         if (countAllBomb == 0) {
             System.out.println("Congratulations! You found all bombs!");
         } else if (isFoundEnd) {
-            System.out.printf("END! %d bombs left on the field%n",countAllBomb);
+            System.out.printf("END! %d bombs left on the field%n", countAllBomb);
         } else {
-            System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)",countAllBomb,sapperCoord[0],sapperCoord[1]);
+            System.out.printf("%d bombs left on the field. Sapper position: (%d,%d)", countAllBomb, sapperCoord[0], sapperCoord[1]);
         }
     }
 

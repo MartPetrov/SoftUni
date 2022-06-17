@@ -43,13 +43,13 @@ public class P01Bouquets {
                 daffodils.push(currentDaff - 2);
             }
         }
-        int moreBouquet = flowersLeft/15;
-        bouquet+= moreBouquet;
+        int moreBouquet = flowersLeft / 15;
+        bouquet += moreBouquet;
 
-        if (bouquet>= 5) {
-            System.out.printf("You made it! You go to the competition with %d bouquets!",bouquet);
+        if (bouquet >= 5) {
+            System.out.printf("You made it! You go to the competition with %d bouquets!", bouquet);
         } else {
-            System.out.printf("You failed... You need more %d bouquets.",5 - bouquet);
+            System.out.printf("You failed... You need more %d bouquets.", 5 - bouquet);
         }
     }
 }

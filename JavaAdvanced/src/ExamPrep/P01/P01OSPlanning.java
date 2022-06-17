@@ -24,16 +24,16 @@ public class P01OSPlanning {
         }
 
         while (tasksStack.size() != 0 && threadsQueue.size() != 0) {
-                int currentTaskNum = tasksStack.peek();
-                int currentThreadsNum = threadsQueue.peek();
+            int currentTaskNum = tasksStack.peek();
+            int currentThreadsNum = threadsQueue.peek();
 
             if (foundNumber(valueOfTask, threadsQueue, currentTaskNum, currentThreadsNum)) break;
             if (currentThreadsNum >= currentTaskNum) {
-                    tasksStack.pop();
-                    threadsQueue.poll();
-                } else {
-                    threadsQueue.poll();
-                }
+                tasksStack.pop();
+                threadsQueue.poll();
+            } else {
+                threadsQueue.poll();
+            }
 
         }
     }

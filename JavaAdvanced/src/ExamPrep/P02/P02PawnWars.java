@@ -34,11 +34,11 @@ public class P02PawnWars {
         while (rowsWhite != 0 && rowsBlack != 7) {
             if (isDiagonal(rowsWhite, rowsBlack, colsWhite, colsBlack)) {
                 if (move % 2 != 0) {
-                    coordinateFinal =  winnerCoordinate (rowsWhite,colsWhite);
+                    coordinateFinal = winnerCoordinate(rowsWhite, colsWhite);
                     System.out.printf("Game over! Black capture on %s.%n", coordinateFinal);
                     break;
                 } else {
-                    coordinateFinal =  winnerCoordinate (rowsBlack,colsBlack);
+                    coordinateFinal = winnerCoordinate(rowsBlack, colsBlack);
                     System.out.printf("Game over! White capture on %s.%n", coordinateFinal);
                     break;
                 }
@@ -67,7 +67,6 @@ public class P02PawnWars {
                 System.out.printf("Game over! Black pawn is promoted to a queen at %s.%n", coordinateFinal);
             }
         }
-
 
 
     }
@@ -128,7 +127,7 @@ public class P02PawnWars {
                 coordinateFinalrow = "1";
                 break;
         }
-return coordinateFinalcol + coordinateFinalrow;
+        return coordinateFinalcol + coordinateFinalrow;
     }
 
     private static boolean isDiagonal(int rowsWhite, int rowsBlack, int colsWhite, int colsBlack) {

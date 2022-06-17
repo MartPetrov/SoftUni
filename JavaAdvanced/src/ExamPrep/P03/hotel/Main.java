@@ -16,7 +16,7 @@ public class Main {
         System.out.println(hotel.remove("Anna")); //false
 
         Person firstPerson = new Person("Alice", 22121, 18, "London");
-        Person secondPerson= new Person("Lizzy", 31311, 24, "Varna");
+        Person secondPerson = new Person("Lizzy", 31311, 24, "Varna");
         Person thirdPerson = new Person("Lucy", 54122, 31, "Birmingham");
         Person fourthPerson = new Person("Maria", 66611, 41, "Sofia");
 

@@ -33,7 +33,7 @@ public class Main {
 //Sell Parrot by species
         List<Parrot> soldSpecies = cage.sellParrotBySpecies("Strigopoidea");
 
-        soldSpecies.forEach(f-> {
+        soldSpecies.forEach(f -> {
             System.out.println(f.getName());
         });
         //Jumpy

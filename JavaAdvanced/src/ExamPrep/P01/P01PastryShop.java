@@ -53,9 +53,9 @@ public class P01PastryShop {
 
     private static void printAll(ArrayDeque<Integer> liquidsDeque, ArrayDeque<Integer> ingredientsDeque, Map<String, Integer> foodMapAdd) {
         printFirstLine(foodMapAdd);
-        printSecondLine (liquidsDeque);
-        printThirdLine (ingredientsDeque);
-        printAllInMap (foodMapAdd);
+        printSecondLine(liquidsDeque);
+        printThirdLine(ingredientsDeque);
+        printAllInMap(foodMapAdd);
     }
 
     private static void printAllInMap(Map<String, Integer> foodMapAdd) {

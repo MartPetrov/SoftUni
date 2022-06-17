@@ -30,6 +30,6 @@ public class Parrot {
 
     @Override
     public String toString() {
-        return String.format("Parrot (%s): %s",this.species,this.name);
+        return String.format("Parrot (%s): %s", this.species, this.name);
     }
 }
