@@ -1,4 +1,4 @@
-package L13Generics.Jar;
+package L07Generics.Jar;
 
 import java.util.ArrayDeque;
 
@@ -11,11 +11,11 @@ public class Jar<T> {
     }
 
 
-    public void add (T element) {
+    public void add(T element) {
         this.stack.push(element);
     }
 
     public T remove() {
-        return  this.stack.pop();
+        return this.stack.pop();
     }
 }
