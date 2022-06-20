@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c5f3a69-b568-4c57-9b5a-18706e0896cd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/L01WorkingWithAbstraction/P01RhombusOfStars/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/L01WorkingWithAbstraction/P01RhombusOfStars/Rhombus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/P02PointInRectangle/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/P02PointInRectangle/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/P02PointInRectangle/Rectangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/L01WorkingWithAbstraction/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P01RhombusOfStars/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P01RhombusOfStars/Rhombus.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +107,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -113,11 +117,11 @@
   </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="L01WorkingWithAbstraction.P01RhombusOfStars.Main" />
+      <option name="MAIN_CLASS_NAME" value="P02PointInRectangle.Main" />
       <module name="untitled104" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="L01WorkingWithAbstraction.P01RhombusOfStars.*" />
+          <option name="PATTERN" value="P02PointInRectangle.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,9 +139,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="P01Rhombus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="L01WorkingWithAbstraction.P01RhombusOfStars.P01Rhombus" />
+      <module name="untitled104" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="L01WorkingWithAbstraction.P01RhombusOfStars.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.P01Rhombus" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
