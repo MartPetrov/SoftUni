@@ -1,7 +1,5 @@
 package L01WorkingWithAbstraction.P03CardsWithPower;
 
-
-
 import java.util.Scanner;
 
 public class Main {
