@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80e01bd6-cbbe-4a95-ab1f-bc5960037471" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_06_2022__12_59__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_06_2022__12_59__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P01RhombusOfStars/P01Rhombus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P01RhombusOfStars/P01Rhombus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P02PointInRectangle/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/Student.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/StudentSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaOOP/L01WorkingWithAbstraction/P03StudentSystem/StudentSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P01RhombusOfStars/P01Rhombus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P02PointInRectangle/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P02PointInRectangle/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P02PointInRectangle/Rectangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P03StudentSystem/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P03StudentSystem/Student.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/untitled104/L01WorkingWithAbstraction/P03StudentSystem/StudentSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled104.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,15 +121,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
   </component>
-  <component name="RunManager" selected="Application.Main (2)">
+  <component name="RunManager" selected="Application.P01Rhombus">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="studentSystem.Main" />
-      <module name="untitled104" />
+      <module name="JavaOOP" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="studentSystem.*" />
@@ -126,7 +142,7 @@
     </configuration>
     <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="L01WorkingWithAbstraction.P03StudentSystem.Main" />
-      <module name="untitled104" />
+      <module name="JavaOOP" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="L01WorkingWithAbstraction.P03StudentSystem.*" />
@@ -137,9 +153,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="L01WorkingWithAbstraction.P02PointInRectangle.Main" />
+      <module name="JavaOOP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="L01WorkingWithAbstraction.P02PointInRectangle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
-      <module name="untitled104" />
+      <module name="JavaOOP" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
@@ -162,7 +191,7 @@
     </configuration>
     <configuration name="P01Rhombus" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="L01WorkingWithAbstraction.P01RhombusOfStars.P01Rhombus" />
-      <module name="untitled104" />
+      <module name="JavaOOP" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="L01WorkingWithAbstraction.P01RhombusOfStars.*" />
@@ -173,13 +202,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="JavaOOP" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="JavaOOP" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.P01Rhombus" />
+        <item itemvalue="Application.Main (3)" />
         <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.P01Rhombus" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
