@@ -1,4 +1,4 @@
-package L01WorkingWithAbstraction.P01CardSuit;
+package L01WorkingWithAbstraction.P01CardSuit_Exercise;
 
 
 public class Main {
