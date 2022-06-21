@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P05Students;
+package P05Students;
 
 public class Student {
     private String firstName;

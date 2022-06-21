@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P02Articles;
+package P02Articles;
 
 import P02Articles.Article;
 

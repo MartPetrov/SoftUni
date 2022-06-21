@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P04Articles2Vers;
+package P04Articles2Vers;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P07OrderByAge;
+package P07OrderByAge;
 
 public class Person {
     String name;

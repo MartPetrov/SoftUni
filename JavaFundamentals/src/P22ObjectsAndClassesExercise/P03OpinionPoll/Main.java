@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P03OpinionPoll;
+package P03OpinionPoll;
 
 import java.util.ArrayList;
 import java.util.Comparator;

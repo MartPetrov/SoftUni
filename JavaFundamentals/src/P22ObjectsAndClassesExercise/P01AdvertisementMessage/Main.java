@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P01AdvertisementMessage;
+package P01AdvertisementMessage;
 
 import java.util.Random;
 import java.util.Scanner;

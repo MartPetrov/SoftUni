@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P05Students;
+package P05Students;
 
 import java.util.ArrayList;
 import java.util.Comparator;

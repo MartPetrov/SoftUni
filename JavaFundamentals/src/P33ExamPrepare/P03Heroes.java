@@ -1,4 +1,4 @@
-package Exam04For2Time;
+package Exam05For2Time;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

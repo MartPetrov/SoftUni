@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P02Articles20;
+package P02Articles20;
 
 import java.util.Scanner;
 

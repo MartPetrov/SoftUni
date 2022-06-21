@@ -1,4 +1,4 @@
-package P33ExamPrepare;
+package Exam05For2Time;
 
 import java.util.Locale;
 import java.util.Scanner;

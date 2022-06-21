@@ -1,4 +1,4 @@
-package P22ObjectsAndClassesExercise.P06VehicleCatalogue;
+package P06VehicleCatalogue;
 
 import java.util.ArrayList;
 import java.util.List;
