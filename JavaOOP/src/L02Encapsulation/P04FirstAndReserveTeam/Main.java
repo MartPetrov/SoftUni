@@ -14,7 +14,7 @@ public class Main {
             team.addPlayer(personToAdd);
         }
         System.out.println("First team have " + team.getFirstTeam().size() + " players");
-        System.out.println("Reserve team have " + team.getFirstTeam().size() + " players");
+        System.out.println("Reserve team have " + team.getReserveTeam().size() + " players");
     }
 }
 
