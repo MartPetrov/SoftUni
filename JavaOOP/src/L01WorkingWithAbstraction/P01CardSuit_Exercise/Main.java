@@ -7,8 +7,8 @@ public class Main {
 
         System.out.println("Card Suits:");
         CardSuit[] cardSuits = CardSuit.values();
-        for (CardSuit cardSuit: cardSuits) {
-            System.out.printf("Ordinal value: %d; Name value: %s%n",cardSuit.ordinal(), cardSuit);
+        for (CardSuit cardSuit : cardSuits) {
+            System.out.printf("Ordinal value: %d; Name value: %s%n", cardSuit.ordinal(), cardSuit);
         }
     }
 }
