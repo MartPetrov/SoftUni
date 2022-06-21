@@ -276,3 +276,4 @@ ModelManifest.xml
 .fake/
 
 /out/
+.idea/
