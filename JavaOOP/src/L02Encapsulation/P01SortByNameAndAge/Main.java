@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -17,15 +18,7 @@ public class Main {
             String[] input = reader.readLine().split(" ");
             people.add(new Person(input[0], input[1], Integer.parseInt(input[2])));
         }
-        people.sort((firstPerson, secondPerson) -> {
-            int nameComparator = firstPerson.getFirstName().compareTo(secondPerson.getFirstName());
-
-            if (nameComparator != 0) {
-                return nameComparator;
-            } else {
-                return Integer.compare(firstPerson.getAge(), secondPerson.getAge());
-            }
-        });
+        people.sort(Comparator.comparing(Person::getFirstName).thenComparingInt(Person::getAge));
 
         for (Person person : people) {
             System.out.println(person.toString());
