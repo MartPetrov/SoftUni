@@ -14,7 +14,7 @@ public class Main {
 
         List<Light> trafficLight = new ArrayList<>();
 
-        for (String color: colors) {
+        for (String color : colors) {
             Light currentLight = new Light(Color.valueOf(color));
             trafficLight.add(currentLight);
         }
@@ -22,7 +22,7 @@ public class Main {
         for (int i = 0; i < n; i++) {
             trafficLight.forEach(light -> {
                 light.changeColor();
-                System.out.print(light.getColor()+" ");
+                System.out.print(light.getColor() + " ");
             });
             System.out.println();
         }
