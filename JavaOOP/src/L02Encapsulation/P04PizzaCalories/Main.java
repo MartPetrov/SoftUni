@@ -28,7 +28,7 @@ public class Main {
 
             toppingData = scanner.nextLine();
         }
-        System.out.printf("%s - %.2f%n",pizza.getName(),pizza.getOverallCalories());
+        System.out.println(pizza);
 
     }
 }

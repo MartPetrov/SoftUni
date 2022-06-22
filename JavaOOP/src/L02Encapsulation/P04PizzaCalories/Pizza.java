@@ -44,4 +44,9 @@ public class Pizza {
     public double getOverallCalories() {
         return this.dough.calculateCalories() + this.toppings.stream().mapToDouble(Topping::calculateCalories).sum();
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %.2f%n",getName(),getOverallCalories());
+    }
 }
