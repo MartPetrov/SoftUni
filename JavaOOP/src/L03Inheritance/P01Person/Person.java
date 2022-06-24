@@ -1,8 +1,8 @@
 package L03Inheritance.P01Person;
 
 public class Person {
-    protected String name;
-    protected int age;
+    private String name;
+    private int age;
 
     public Person(String name, int age) {
         this.name = name;
