@@ -27,8 +27,7 @@
 | <a href="https://softuni.bg/trainings/3702/java-oop-june-2022"> Java OOP </a>       |                                              |
 | <a href="https://softuni.bg/trainings/3850/mysql-september-2022"> MySQL </a>       |
 | <a href="https://softuni.bg/trainings/3852/spring-data-october-2022"> Spring Data </a>       |
-| <a href="https://softuni.bg/trainings/3846/js-advanced-september-2022"> JS Advanced </a>       |
-| <a href="https://softuni.bg/trainings/3847/js-applications-october-2022"> JS Applications </a>       |
+
 
 
 
