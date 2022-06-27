@@ -1,4 +1,4 @@
-package L04InterfacesAndAbstraction.CarShop;
+package L04InterfacesAndAbstraction.P01CarShop;
 
 public interface Car{
     int TIRES = 4;

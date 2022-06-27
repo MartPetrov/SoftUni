@@ -1,13 +1,13 @@
-package L04InterfacesAndAbstraction.CarShop;
+package L04InterfacesAndAbstraction.P02CarShopExtend;
 
-public class Seat implements Car{
+public class CarImpl implements Car {
 
     private String model;
     private String color;
     private Integer horsePower;
     private String countryProduced;
 
-    public Seat(String model, String color, Integer horsePower, String countryProduced) {
+    public CarImpl(String model, String color, Integer horsePower, String countryProduced) {
         this.model = model;
         this.color = color;
         this.horsePower = horsePower;
@@ -16,7 +16,7 @@ public class Seat implements Car{
 
     @Override
     public String getModel() {
-        return  this.model;
+        return this.model;
     }
 
     @Override
@@ -36,6 +36,6 @@ public class Seat implements Car{
 
     @Override
     public String toString() {
-        return String.format("This is %s produced in %s and have %d tires", this.model,this.countryProduced,Car.TIRES);
+        return String.format("This is %s produced in %s and have %d tires", this.model, this.countryProduced, Car.TIRES);
     }
 }
