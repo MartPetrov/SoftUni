@@ -1,4 +1,4 @@
-package L04InterfacesAndAbstraction.Ferrari;
+package L04InterfacesAndAbstraction.P06Ferrari;
 
 public interface Car {
     String brakes();
