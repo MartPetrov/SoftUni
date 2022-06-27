@@ -1,4 +1,4 @@
-package P01DefineAnInterfacePerson_Exercise;
+package L04InterfacesAndAbstraction.P01DefineAnInterfacePerson_Exercise;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;

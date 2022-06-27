@@ -1,4 +1,4 @@
-package P01DefineAnInterfacePerson_Exercise;
+package L04InterfacesAndAbstraction.P01DefineAnInterfacePerson_Exercise;
 
 public class Citizen implements Person {
     private final String name;
