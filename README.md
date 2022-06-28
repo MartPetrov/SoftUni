@@ -23,7 +23,7 @@
 | --------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <a href="https://softuni.bg/trainings/3510/programming-basics-with-java-october-2021"> Programming Basics with Java </a>           |        <a href="https://softuni.bg/certificates/details/118532/5a25233a"> Link</a> |
 | <a href="https://softuni.bg/trainings/3607/programming-fundamentals-with-java-january-2022">Programming Fundamentals with Java</a> |        <a href="https://softuni.bg/certificates/details/129717/ccc28b50"> Link</a> |
-| <a href="https://softuni.bg/trainings/3701/java-advanced-may-2022">Java Advanced</a>|                                              |
+| <a href="https://softuni.bg/trainings/3701/java-advanced-may-2022">Java Advanced</a>                                               |        <a href="https://softuni.bg/certificates/details/136104/595fe6f0"> Link</a> |
 | <a href="https://softuni.bg/trainings/3702/java-oop-june-2022"> Java OOP </a>       |                                              |
 | <a href="https://softuni.bg/trainings/3850/mysql-september-2022"> MySQL </a>       |
 | <a href="https://softuni.bg/trainings/3852/spring-data-october-2022"> Spring Data </a>       |
