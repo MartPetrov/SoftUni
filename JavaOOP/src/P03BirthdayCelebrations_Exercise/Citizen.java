@@ -1,4 +1,4 @@
-package L04InterfacesAndAbstraction.P02MultipleImplementation_Exercise;
+package P03BirthdayCelebrations_Exercise;
 
 public class Citizen implements Person,Birthable,Identifiable {
     private final String name;
@@ -14,12 +14,10 @@ public class Citizen implements Person,Birthable,Identifiable {
         this.birthDate = birthDate;
     }
 
-    @Override
     public String getName() {
         return this.name;
     }
 
-    @Override
     public int getAge() {
         return this.age;
     }
@@ -35,13 +33,4 @@ public class Citizen implements Person,Birthable,Identifiable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Citizen{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", id='" + id + '\'' +
-                ", birthDate='" + birthDate + '\'' +
-                '}';
-    }
 }
