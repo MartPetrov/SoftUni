@@ -1,9 +1,8 @@
-package P03BirthdayCelebrations_Exercise;
+package L04InterfacesAndAbstraction.P03BirthdayCelebrations_Exercise;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Main {
 

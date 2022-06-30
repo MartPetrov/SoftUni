@@ -1,4 +1,4 @@
-package P03BirthdayCelebrations_Exercise;
+package L04InterfacesAndAbstraction.P04FoodShortage_Exercise;
 
 public interface Person {
     String getName();

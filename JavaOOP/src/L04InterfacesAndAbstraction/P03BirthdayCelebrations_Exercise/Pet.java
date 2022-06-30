@@ -1,4 +1,4 @@
-package P03BirthdayCelebrations_Exercise;
+package L04InterfacesAndAbstraction.P03BirthdayCelebrations_Exercise;
 
 public class Pet implements Birthable{
     private final String name;
