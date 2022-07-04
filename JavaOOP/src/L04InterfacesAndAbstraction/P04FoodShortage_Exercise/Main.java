@@ -32,14 +32,12 @@ public class Main {
             command = scanner.nextLine();
         }
 
-        int sum = citizens.stream()
+        System.out.println(citizens.stream()
                 .map(Citizen::getFood)
                 .reduce(0, Integer::sum)
                 + rebels.stream()
                 .map(Rebel::getFood)
-                .reduce(0, Integer::sum);
-        System.out.println(sum);
-
+                .reduce(0, Integer::sum));
         scanner.close();
     }
 }
